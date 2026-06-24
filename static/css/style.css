@@ -1,0 +1,198 @@
+:root {
+    --bg-dark-base: #0f1115;
+    --bg-sidebar: #161920;
+    --accent-green: #4af626;
+    --accent-blue: #00bcd4;
+    --text-main: #e2e8f0;
+    --border-color: #2d3748;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark-base);
+    color: var(--text-main);
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Navigation Layout */
+#sidebar {
+    width: 260px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    color: var(--accent-blue);
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 12px;
+    color: var(--text-main);
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: 0.2s;
+}
+
+.nav-links li a:hover {
+    background-color: var(--border-color);
+    color: var(--accent-blue);
+}
+
+/* Content Area Framework */
+#content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Dashboard Home UI — Reads background image directly from static/images/ */
+.dashboard-hero {
+    height: 70vh;
+    background-image: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.95)), 
+                      url('../images/fcc_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.status-indicator {
+    margin-top: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #000;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    font-family: monospace;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.pulse {
+    box-shadow: 0 0 0 0 rgba(74, 246, 38, 0.7);
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 246, 38, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(74, 246, 38, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 246, 38, 0); }
+}
+
+/* Dynamic Content Grid Layouts */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-node {
+    display: block;
+    background: #1a202c;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    color: var(--text-main);
+    text-decoration: none;
+    border-radius: 6px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.btn-node:hover {
+    border-color: var(--accent-blue);
+    background: #2d3748;
+}
+
+.region-card {
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.region-header {
+    background: #222733;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.region-header h3 { margin: 0; font-size: 1.15rem; }
+.region-body { padding: 15px; }
+
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.city-badge {
+    background: #0f1115;
+    border: 1px solid #4a5568;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.header-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-back {
+    background: #4a5568;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.text-center { text-align: center; }
+.text-muted { color: #a0aec0; }
+.text-success { color: var(--accent-green); }
+.border-secondary { border-color: var(--border-color); }
+.d-flex { display: flex; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
