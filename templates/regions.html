@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>International Call Sign & Regional Matrix</h2>
+    <p class="text-muted">Select an entry target to expand regional geographical data subsets.</p>
+    <hr class="border-secondary">
+
+    <div class="grid-layout">
+        {% for country in countries %}
+        <div class="grid-item">
+            <a href="/regions?country={{ country }}" class="btn-node">
+                🌐 {{ country }}
+            </a>
+        </div>
+        {% empty %}
+        <p class="text-warning">Data Error: static/locations.json.gz missing or corrupted.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
