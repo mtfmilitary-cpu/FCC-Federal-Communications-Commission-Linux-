@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHR Tactical Station Terminal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>AHR Tactical</h3>
+                <small class="text-success">STATION OFF-LINE</small>
+            </div>
+            <hr class="border-secondary">
+            <ul class="nav-links">
+                <li><a href="/">📡 Home Dashboard</a></li>
+                <li><a href="/phonetic">🔤 Military Alphabet</a></li>
+                <li><a href="/morse">📻 Morse Code Archive</a></li>
+                <li><a href="/regions">🌐 Location Directory</a></li>
+            </ul>
+        </nav>
+
+        <main id="content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+</body>
+</html>
