@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="header-action">
+        <h2>Target Grid: {{ country.name }}</h2>
+        <a href="/regions" class="btn-back">← Directory Index</a>
+    </div>
+    <p><strong>Capital Core:</strong> {{ country.capital or 'N/A' }} | <strong>ISO Tag:</strong> {{ country.iso2 }}</p>
+    <hr class="border-secondary">
+
+    {% if country.states %}
+        {% for state in country.states %}
+        <div class="region-card">
+            <div class="region-header">
+                <h3>{{ state.name }}</h3>
+            </div>
+            <div class="region-body">
+                <p class="text-muted">Mapped Node Cities:</p>
+                <div class="badge-container">
+                    {% if state.cities %}
+                        {% for city in state.cities %}
+                        <span class="city-badge">{{ city.name }}</span>
+                        {% endfor %}
+                    {% else %}
+                        <span class="text-muted">No tactical sub-nodes registered.</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-muted">No sub-regions reported for this destination.</p>
+    {% endif %}
+</div>
+{% endblock %}
