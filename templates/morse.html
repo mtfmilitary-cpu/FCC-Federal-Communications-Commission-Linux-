@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Morse Code Operational Archive</h2>
+    <p class="text-muted">International continuous wave (CW) rules and dictionary.</p>
+    <hr class="border-secondary">
+
+    <div class="region-card" style="margin-bottom: 25px;">
+        <div class="region-header">
+            <h3>Standard Signal Timing Protocol</h3>
+        </div>
+        <div class="region-body">
+            <ul style="line-height: 1.6; margin: 0; padding-left: 20px;">
+                <li><strong>Dot / Dit (•):</strong> The baseline unit of transmission speed.</li>
+                <li><strong>Dash / Dah (—):</strong> Lasts exactly three times longer than a dot.</li>
+                <li><strong>Letter Spacing:</strong> The silence between elements of one letter is 1 dot.</li>
+                <li><strong>Word Spacing:</strong> The silence between separate words is 7 dots.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>CW Core Dictionary</h3>
+    <div class="grid-layout">
+        {% for character, symbol in morse.items() %}
+        <div class="btn-node d-flex justify-content-between align-items-center">
+            <span style="color: var(--accent-green); font-weight: bold; font-size: 1.2rem;">{{ character }}</span>
+            <span style="letter-spacing: 3px; font-weight: bold; font-size: 1.15rem;">{{ symbol }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
