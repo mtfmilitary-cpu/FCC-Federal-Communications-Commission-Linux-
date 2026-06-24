@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>ITU / Military Phonetic Alphabet</h2>
+    <p class="text-muted">Standard voice designations to clear up spelling confusion over noisy radio channels.</p>
+    <hr class="border-secondary">
+
+    <div class="grid-layout">
+        {% for letter, word in alphabet.items() %}
+        <div class="btn-node d-flex justify-content-between align-items-center">
+            <span style="color: var(--accent-blue); font-weight: bold; font-size: 1.25rem;">{{ letter }}</span>
+            <span style="font-family: monospace; font-size: 1.1rem;">{{ word }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
